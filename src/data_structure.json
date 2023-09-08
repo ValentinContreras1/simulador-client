@@ -1,0 +1,70 @@
+[
+  {
+    "Laguna": {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "Sensor1": {
+        "id": "a0e2b3c7-2c58-4e0a-8675-0b01cb1057ac",
+        "lectura": 0.1
+      },
+      "Sensor2": {
+        "id": "7c35cc85-8574-40d9-ba0a-e7b9a9c8cb6f",
+        "lectura": 0.56
+      },
+      "Aireador": {
+        "id": "3f7908d9-64ce-4d4c-8d61-51e0c3cc30ac",
+        "frecuenciaActual": 12
+      }
+    }
+  },
+  {
+    "Laguna": {
+      "id": "1d6837ed-3f5e-48e9-9d81-48a5b1f1e5c7",
+      "Sensor1": {
+        "id": "4b10f9e7-256c-4813-a901-2f27c258ccf4",
+        "lectura": 0.2
+      },
+      "Sensor2": {
+        "id": "9a8c1c4e-02a0-42db-8553-71b305c3cc9f",
+        "lectura": 0.48
+      },
+      "Aireador": {
+        "id": "b775793f-2d14-4f8c-9f8b-84d819f99f89",
+        "frecuenciaActual": 14
+      }
+    }
+  },
+  {
+    "Laguna": {
+      "id": "dc8c23f6-70ce-4a6e-84a7-48bc146c7a11",
+      "Sensor1": {
+        "id": "20733f7c-169f-4ab3-8ee5-7a783b8dd6db",
+        "lectura": 0.15
+      },
+      "Sensor2": {
+        "id": "c91c7bc9-eb36-4cbf-bf1a-5e87342f0e1a",
+        "lectura": 0.62
+      },
+      "Aireador": {
+        "id": "c54f24b5-3b0c-4d0c-94a7-3c6cf3c78d9e",
+        "frecuenciaActual": 11
+      }
+    }
+  },
+  {
+    "Laguna": {
+      "id": "79b1b7e7-7324-49d0-a61f-9f9412849865",
+      "Sensor1": {
+        "id": "2833fbc5-77d8-4c43-9b2b-c3e0e4b084eb",
+        "lectura": 0.18
+      },
+      "Sensor2": {
+        "id": "c22b59b4-7d96-4910-8e97-6f0792df777b",
+        "lectura": 0.53
+      },
+      "Aireador": {
+        "id": "14268fdd-7af0-4d16-af60-52a7a5b8836a",
+        "frecuenciaActual": 13
+      }
+    }
+  }
+]
