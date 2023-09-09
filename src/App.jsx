@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./App.css"
+// import "./Grid.css"
 import { useEffect } from "react"
 import { db } from "./firebase/config"
 import { ref, onValue, set } from "firebase/database"
@@ -8,21 +9,60 @@ import { Navbar } from './components/Navbar'
 import { Laguna } from './components/Laguna'
 import { Aireadores } from "./components/Aireadores"
 import { Aireador } from "./components/Aireador"
+import { Grid } from "./components/Grid"
 
 function App() {
   
   return (
     <Container>
       <Navbar></Navbar>
-      <Laguna>
-        <Aireadores>
-          <Aireador></Aireador>
-          <Aireador></Aireador>
-          <Aireador></Aireador>
-          <Aireador></Aireador>
-          <Aireador></Aireador>
-        </Aireadores>
-      </Laguna>
+      <Grid>
+        <Laguna>
+          <Aireadores>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+          </Aireadores>
+        </Laguna>
+        <Laguna>
+          <Aireadores>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+          </Aireadores>
+        </Laguna>
+        <Laguna>
+          <Aireadores>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+          </Aireadores>
+        </Laguna>
+        <Laguna>
+          <Aireadores>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+          </Aireadores>
+        </Laguna>
+        <Laguna>
+          <Aireadores>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+          </Aireadores>
+        </Laguna>
+      </Grid>
     </Container>
   )
 }

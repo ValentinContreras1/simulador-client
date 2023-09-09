@@ -4,7 +4,7 @@ export const Aireadores = ({children}) => {
   const navbarStyle = {
     backgroundColor: '#9d9d9d',
     width: '100%',
-    height: '100px',
+    height: '150px',
     margin: 'auto',
     color: 'white',
     borderRadius: '20px',
