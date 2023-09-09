@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "./App.css"
-// import "./Grid.css"
 import { useEffect } from "react"
 import { db } from "./firebase/config"
 import { ref, onValue, set } from "firebase/database"
