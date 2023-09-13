@@ -1,13 +1,14 @@
 import { create } from "zustand"
 import { db } from "../firebase/config"
-import { ref, onValue } from "firebase/database"
+import { ref, onValue, push, set } from "firebase/database"
+import { v4 as uuid } from "uuid"
 
-export const useLagunasStore = create((set) => {
+const lagunasRef = ref(db, "Lagunas/")
+
+export const useLagunasStore = create((put, get) => {
   return {
     lagunas: [],
     fetchLagunas: async () => {
-      const lagunasRef = ref(db, "Lagunas/")
-
       onValue(lagunasRef, (snapshot) => {
         const data = snapshot.val()
 
@@ -30,9 +31,24 @@ export const useLagunasStore = create((set) => {
             }
           )
 
-          set({ lagunas: lagunasArray })
+          put({ lagunas: lagunasArray })
         }
       })
+    },
+    createEmptyLaguna: async (lagunas) => {
+      const id = uuid()
+
+      const emptyLaguna = {
+        [id]: {
+          od: 0,
+          orp: 0,
+          Aireadores: {},
+        },
+      }
+
+      console.log(emptyLaguna)
+
+      set(lagunasRef, lagunas.push(emptyLaguna))
     },
   }
 })

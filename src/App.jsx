@@ -7,10 +7,12 @@ import { Aireadores } from "./components/Aireadores"
 import { Aireador } from "./components/Aireador"
 import { Grid } from "./components/Grid"
 import { useLagunasStore } from "./store/lagunas"
+import { CrearButton } from "./components/CrearButton"
 
 function App() {
   const fetchLagunas = useLagunasStore((state) => state.fetchLagunas)
   const lagunas = useLagunasStore((state) => state.lagunas)
+  const create = useLagunasStore((state) => state.createEmptyLaguna)
 
   useEffect(() => {
     fetchLagunas()
@@ -18,9 +20,15 @@ function App() {
 
   console.log(lagunas)
 
+  const handleClick = () => {
+    create(lagunas)
+  }
+
   return (
     <Container>
-      <Navbar></Navbar>
+      <Navbar>
+        <CrearButton onClick={handleClick}></CrearButton>
+      </Navbar>
       <Grid>
         {lagunas.map((laguna) => (
           <Laguna
