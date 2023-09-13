@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Aireador = ({children}) => {
+export const Aireador = ({children, frecuencia}) => {
 const textStyle = {
     textAlign: 'left',
     fontSize: '25px',
@@ -9,6 +9,6 @@ const textStyle = {
 
 
   return (
-    <li style={textStyle}>Aireador: Frecuencia</li>
+    <li style={textStyle}>Aireador: {frecuencia}</li>
   );
 };
