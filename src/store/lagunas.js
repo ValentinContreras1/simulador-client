@@ -35,20 +35,19 @@ export const useLagunasStore = create((put, get) => {
         }
       })
     },
-    createEmptyLaguna: async (lagunas) => {
+    createEmptyLaguna: async () => {
       const id = uuid()
 
       const emptyLaguna = {
-        [id]: {
-          od: 0,
-          orp: 0,
-          Aireadores: {},
+        id,
+        od: 0,
+        orp: 0,
+        Aireadores: {
+          frecuencia: 'none'
         },
       }
 
-      console.log(emptyLaguna)
-
-      set(lagunasRef, lagunas.push(emptyLaguna))
+      push(lagunasRef, emptyLaguna)
     },
   }
 })

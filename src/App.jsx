@@ -21,7 +21,7 @@ function App() {
   console.log(lagunas)
 
   const handleClick = () => {
-    create(lagunas)
+    create()
   }
 
   return (
