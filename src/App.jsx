@@ -1,8 +1,5 @@
-import { useState } from "react"
 import "./App.css"
 import { useEffect } from "react"
-import { db } from "./firebase/config"
-import { ref, onValue, set } from "firebase/database"
 import { Container } from "./components/Container"
 import { Navbar } from "./components/Navbar"
 import { Laguna } from "./components/Laguna"
@@ -32,9 +29,12 @@ function App() {
             orp={laguna.orp}
             key={laguna.id}
           >
-            <Aireadores>
+            <Aireadores key={laguna.id}>
               {laguna.aireadores.map((aireador) => (
-                <Aireador frecuencia={aireador.frecuencia}></Aireador>
+                <Aireador
+                  frecuencia={aireador.frecuencia}
+                  key={aireador.id}
+                ></Aireador>
               ))}
             </Aireadores>
           </Laguna>
