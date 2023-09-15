@@ -1,21 +1,13 @@
-import React from 'react';
+const airStyle = {
+  height: '120px',
+  margin: 'auto',
+  marginTop: '30px',
+  overflowY: 'scroll',
+};
 
 export const Aireadores = ({children}) => {
-  const navbarStyle = {
-    backgroundColor: '#9d9d9d',
-    width: '100%',
-    height: '150px',
-    margin: 'auto',
-    color: 'white',
-    borderRadius: '20px',
-    marginTop: '30px',
-    overflowY: 'scroll',
-    paddingTop: '10px'
-  };
-
-
   return (
-    <ul style={navbarStyle}>
+    <ul className='fs-5 bg-secondary rounded-4 text-white' style={airStyle}>
       {children}
     </ul>
   );

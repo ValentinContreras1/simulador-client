@@ -1,12 +1,4 @@
-const buttonStyle = {
-  textAlign: "right",
-  width: "50%",
-  color: "#fff",
-  fontSize: "25px",
-  background: "none",
-  border: "none",
-  paddingRight: "50px",
-}
+import "./main.css"
 
 export const CrearButton = ({ onClick }) => {
   const handleClick = () => {
@@ -14,7 +6,7 @@ export const CrearButton = ({ onClick }) => {
   }
 
   return (
-    <button style={buttonStyle} onClick={handleClick} type='button'>
+    <button className='create border-0 bg-secondary rounded-3 ps-2 pe-3 fs-4 text-white' onClick={handleClick} type='button'>
       + Crear
     </button>
   )
