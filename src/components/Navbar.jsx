@@ -1,26 +1,12 @@
-import { CrearButton } from "./CrearButton"
-
-export const Navbar = ({children}) => {
-  const navbarStyle = {
-    backgroundColor: "#1e1e1e",
-    width: "90%",
-    margin: "auto",
-    padding: "20px 40px 20px 40px",
-    color: "white",
-    borderRadius: "20px",
-    zIndex: 1,
-  }
-
-  const textStyle = {
-    float: "left",
-    width: "50%",
-    fontSize: "25px",
-  }
-
+export const Navbar = ({children, consumo}) => {
   return (
-    <div style={navbarStyle}>
-      <div style={textStyle}>Consumo:</div>
-      {children}
-    </div>
+    <nav className="container">
+      <div className="navbar bg-dark mt-4 ps-4 pe-4 rounded-4">
+        <div className="col-6 fs-4 text-white">Consumo: {consumo}</div>
+        <div className="col-6 text-end">
+          {children}
+        </div>
+      </div>
+  </nav>
   )
 }

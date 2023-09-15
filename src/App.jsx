@@ -5,7 +5,6 @@ import { Navbar } from "./components/Navbar"
 import { Laguna } from "./components/Laguna"
 import { Aireadores } from "./components/Aireadores"
 import { Aireador } from "./components/Aireador"
-import { Grid } from "./components/Grid"
 import { useLagunasStore } from "./store/lagunas"
 import { CrearButton } from "./components/CrearButton"
 
@@ -29,7 +28,6 @@ function App() {
       <Navbar>
         <CrearButton onClick={handleClick}></CrearButton>
       </Navbar>
-      <Grid>
         {lagunas.map((laguna) => (
           <Laguna
             id={laguna.id}
@@ -47,7 +45,6 @@ function App() {
             </Aireadores>
           </Laguna>
         ))}
-      </Grid>
     </Container>
   )
 }
