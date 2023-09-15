@@ -30,7 +30,10 @@ export const Consumo = () => {
         
         // Determinar las clases adicionales
         let nuevasClases = '';
-        if (consumo > 50) {
+        if (consumo < 30) {
+            nuevasClases += ' bg-success';
+        }
+        if (consumo > 60) {
         nuevasClases += ' bg-warning';
         }
         if (consumo > 75) {
