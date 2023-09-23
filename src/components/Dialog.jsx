@@ -7,7 +7,7 @@ const dialog = {
 }
 
 const content = {
-  height: '600px',
+  height: '90%',
   width: '90%',
   position: 'fixed',
   top: '5%',
