@@ -40,7 +40,9 @@ function App() {
       <Navbar>
         <CrearButton onClick={handleClick}></CrearButton>
       </Navbar>
-      <Dialog onOpen={open} onClose={handleClose}></Dialog>
+      <Dialog onOpen={open} onClose={handleClose}>
+        <Aireador></Aireador>
+      </Dialog>
       {lagunas.map((laguna) => (
         <Laguna
           id={laguna.id}
