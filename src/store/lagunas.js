@@ -70,6 +70,11 @@ export const useLagunasStore = create((put, get) => {
       push(ref(db, `Lagunas/${lagunaId}/Aireadores/`), aireador)
     },
 
+    deleteAireador: async(lagunaId, fireid) => {
+      const childNode = ref(db, `Lagunas/${lagunaId}/Aireadores/${fireid}`)
+      remove(childNode)
+    },
+
     changeAireadorFrecuencia: async (lagunaId, aireadorId, value) => {
       set(
         ref(db, `Lagunas/${lagunaId}/Aireadores/${aireadorId}/frecuencia`),
