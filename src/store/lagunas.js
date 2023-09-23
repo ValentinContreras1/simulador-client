@@ -55,10 +55,12 @@ export const useLagunasStore = create((put, get) => {
     },
 
     changeOdValue: async (lagunaId, value) => {
+      get().fetchLagunas()
       set(ref(db, `Lagunas/${lagunaId}/od/`), value)
     },
 
     changeOrpValue: async (lagunaId, value) => {
+      get().fetchLagunas()
       set(ref(db, `Lagunas/${lagunaId}/orp/`), value)
     },
 
@@ -71,7 +73,10 @@ export const useLagunasStore = create((put, get) => {
     },
 
     changeAireadorFrecuencia: async (lagunaId, aireadorId, value) => {
-      set(ref(db, `Lagunas/${lagunaId}/Aireadores/${aireadorId}/frecuencia`), value)
-    }
+      set(
+        ref(db, `Lagunas/${lagunaId}/Aireadores/${aireadorId}/frecuencia`),
+        value
+      )
+    },
   }
 })
