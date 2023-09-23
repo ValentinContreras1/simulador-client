@@ -19,7 +19,7 @@ function App() {
     setOpen(false)
   }
 
-  console.log(open)
+  //console.log(open)
 
   const fetchLagunas = useLagunasStore((state) => state.fetchLagunas)
   const lagunas = useLagunasStore((state) => state.lagunas)

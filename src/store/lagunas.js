@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { db } from "../firebase/config"
-import { ref, onValue, push } from "firebase/database"
+import { ref, onValue, push, remove } from "firebase/database"
 import { v4 as uuid } from "uuid"
 
 const lagunasRef = ref(db, "Lagunas/")
