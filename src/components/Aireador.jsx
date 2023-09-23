@@ -13,8 +13,15 @@ export const Aireador = ({ freq, id, lagunaId }) => {
 
   return (
     <div className='col-2 ps-3 p-3 text-white text-center'>
-      <div className='tarjeta bg-secondary pt-5 pb-5 rounded-4'>
-        <h1 className='fs-5 col'>Aireador</h1>
+      <div className='tarjeta bg-secondary pb-5 rounded-4'>
+        <div className="col-12 text-end p-2">
+          <button
+            className='border-0 bg-secondary'
+          >
+            <img src='https://img.icons8.com/?size=30&id=11997&format=png' />
+          </button>
+        </div>
+        <h1 className='fs-5'>Aireador</h1>
         <Knob
           className='fs-4'
           value={frecuencia}
