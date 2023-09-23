@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { Container } from "./components/Container"
 import { Navbar } from "./components/Navbar"
 import { Laguna } from "./components/Laguna"
-import { Aireadores } from "./components/Aireadores"
+import { Dialog } from "./components/Dialog"
 import { Aireador } from "./components/Aireador"
 import { useLagunasStore } from "./store/lagunas"
 import { CrearButton } from "./components/CrearButton"
@@ -28,6 +28,7 @@ function App() {
       <Navbar>
         <CrearButton onClick={handleClick}></CrearButton>
       </Navbar>
+        <Dialog></Dialog>
         {lagunas.map((laguna) => (
           <Laguna
             id={laguna.id}
@@ -35,14 +36,6 @@ function App() {
             orp={laguna.orp}
             key={laguna.id}
           >
-            <Aireadores key={laguna.id}>
-              {laguna.aireadores.map((aireador) => (
-                <Aireador
-                  frecuencia={aireador.frecuencia}
-                  key={aireador.id}
-                ></Aireador>
-              ))}
-            </Aireadores>
           </Laguna>
         ))}
     </Container>
