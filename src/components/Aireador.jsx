@@ -1,9 +1,13 @@
 import { Knob } from "primereact/knob"
 import { useState } from "react"
 import { useLagunasStore } from "../store/lagunas"
+import { useConsumoStore } from "../store/consumo"
 
 export const Aireador = ({ freq, id, lagunaId }) => {
-  const updateFrecuencia = useLagunasStore((state) => state.changeAireadorFrecuencia)
+  const updateFrecuencia = useLagunasStore(
+    (state) => state.changeAireadorFrecuencia
+  )
+  const updateConsumo = useConsumoStore((state) => state.actualizarConsumo)
 
   const [frecuencia, setFrecuencia] = useState(freq)
 
@@ -14,11 +18,17 @@ export const Aireador = ({ freq, id, lagunaId }) => {
         <Knob
           className='fs-4'
           value={frecuencia}
-          onChange={(e) => {setFrecuencia(e.value), updateFrecuencia(lagunaId, id, frecuencia)}}
+          onChange={(e) => {
+            setFrecuencia(e.value)
+            updateFrecuencia(lagunaId, id, e.value)
+            updateConsumo()
+          }}
           valueColor={"white"}
           rangeColor={"#313131"}
           textColor={"white"}
           size={60}
+          min={0}
+          max={100}
         />
       </div>
     </div>
