@@ -4,7 +4,7 @@ import { Container } from "./components/Container"
 import { Navbar } from "./components/Navbar"
 import { Laguna } from "./components/Laguna"
 import { Dialog } from "./components/Dialog"
-import { Aireador } from "./components/Aireador"
+import { Aireadores } from "./components/Aireadores"
 import { useLagunasStore } from "./store/lagunas"
 import { CrearButton } from "./components/CrearButton"
 
@@ -41,7 +41,7 @@ function App() {
         <CrearButton onClick={handleClick}></CrearButton>
       </Navbar>
       <Dialog onOpen={open} onClose={handleClose}>
-        <Aireador></Aireador>
+        <Aireadores></Aireadores>
       </Dialog>
       {lagunas.map((laguna) => (
         <Laguna

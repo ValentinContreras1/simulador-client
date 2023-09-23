@@ -15,7 +15,7 @@ const content = {
   left: '50%',
   transform: 'translateX(-50%)',
   boxShadow: '0px 0px 200px black',
-  overflowY: 'auto'
+  overflowY: 'hidden'
 };
 
 export const Dialog = ({children, onOpen, onClose}) => {
