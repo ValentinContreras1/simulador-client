@@ -12,3 +12,19 @@
     overflow: hidden;
     display:inline-block;
 }
+
+.tarjeta{
+    transition: 0.2s;
+}
+.tarjeta:hover{
+    box-shadow: 0 0 20px black;
+    margin-top: -4px;
+}
+
+.lightbtn{
+    transition: 0.2s;
+}
+.lightbtn:hover{
+    color: white !important;
+    filter: drop-shadow(0px 0px 10px white);
+}

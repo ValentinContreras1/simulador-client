@@ -6,7 +6,7 @@ export const Aireador = ({id=1, _freq=0}) => {
 
   return (
     <div className="col-2 ps-3 p-3 text-white text-center">
-      <div className="bg-secondary pt-5 pb-5 rounded-4 shadow">
+      <div className="tarjeta bg-secondary pt-5 pb-5 rounded-4">
         <h1 className='fs-5 col'>
           Aireador {id}:
         </h1>

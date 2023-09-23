@@ -1,7 +1,7 @@
 export const AddAireador = ({id=1}) => {
   return (
     <div className="col-2 ps-3 p-3 text-center">
-      <button className="col-12 text-white bg-secondary pt-5 pb-5 rounded-4 shadow border-0">
+      <button className="tarjeta col-12 text-white bg-secondary pt-5 pb-5 rounded-4 border-0">
         <h1 className='fs-5 col'>
           Agregar
         </h1>
