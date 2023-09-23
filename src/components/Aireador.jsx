@@ -1,5 +1,5 @@
 import { Knob } from "primereact/knob"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLagunasStore } from "../store/lagunas"
 import { useConsumoStore } from "../store/consumo"
 
