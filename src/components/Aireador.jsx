@@ -9,15 +9,19 @@ export const Aireador = ({ freq, id, lagunaId }) => {
   )
   const updateConsumo = useConsumoStore((state) => state.actualizarConsumo)
 
+  const fetch = useLagunasStore((state) => state.fetchLagunas)
+
+  useEffect(() => {
+    fetch()
+  }, [])
+
   const [frecuencia, setFrecuencia] = useState(freq)
 
   return (
     <div className='col-2 ps-3 p-3 text-white text-center'>
       <div className='tarjeta bg-secondary pb-5 rounded-4'>
-        <div className="col-12 text-end p-2">
-          <button
-            className='border-0 bg-secondary'
-          >
+        <div className='col-12 text-end p-2'>
+          <button className='border-0 bg-secondary'>
             <img src='https://img.icons8.com/?size=30&id=11997&format=png' />
           </button>
         </div>
