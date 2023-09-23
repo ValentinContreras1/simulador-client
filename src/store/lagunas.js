@@ -45,7 +45,9 @@ export const useLagunasStore = create((put, get) => {
         orp: 0,
       }
 
-      put({ lagunas: [...get().lagunas, { id: newLagunaId, ...emptyLaguna }] })
+      put((state) => ({
+        lagunas: [...state.lagunas, { id: newLagunaId, ...emptyLaguna }],
+      }))
       update(newLagunaRef, emptyLaguna)
     },
 
@@ -55,13 +57,29 @@ export const useLagunasStore = create((put, get) => {
     },
 
     changeOdValue: async (lagunaId, value) => {
-      get().fetchLagunas()
       set(ref(db, `Lagunas/${lagunaId}/od/`), value)
+      put((state) => {
+        const lagunas = state.lagunas.map((laguna) => {
+          if (laguna.id === lagunaId) {
+            return { ...laguna, od: value }
+          }
+          return laguna
+        })
+        return { lagunas }
+      })
     },
 
     changeOrpValue: async (lagunaId, value) => {
-      get().fetchLagunas()
       set(ref(db, `Lagunas/${lagunaId}/orp/`), value)
+      put((state) => {
+        const lagunas = state.lagunas.map((laguna) => {
+          if (laguna.id === lagunaId) {
+            return { ...laguna, orp: value }
+          }
+          return laguna
+        })
+        return { lagunas }
+      })
     },
 
     addAireador: async (lagunaId) => {
@@ -77,6 +95,21 @@ export const useLagunasStore = create((put, get) => {
         ref(db, `Lagunas/${lagunaId}/Aireadores/${aireadorId}/frecuencia`),
         value
       )
+      put((state) => {
+        const lagunas = state.lagunas.map((laguna) => {
+          if (laguna.id === lagunaId) {
+            const aireadores = laguna.aireadores.map((aireador) => {
+              if (aireador.id === aireadorId) {
+                return { ...aireador, frecuencia: value }
+              }
+              return aireador
+            })
+            return { ...laguna, aireadores }
+          }
+          return laguna
+        })
+        return { lagunas }
+      })
     },
   }
 })
