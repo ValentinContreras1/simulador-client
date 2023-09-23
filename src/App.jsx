@@ -1,5 +1,5 @@
 import "./App.css"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Container } from "./components/Container"
 import { Navbar } from "./components/Navbar"
 import { Laguna } from "./components/Laguna"
@@ -9,6 +9,18 @@ import { useLagunasStore } from "./store/lagunas"
 import { CrearButton } from "./components/CrearButton"
 
 function App() {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  console.log(open)
+
   const fetchLagunas = useLagunasStore((state) => state.fetchLagunas)
   const lagunas = useLagunasStore((state) => state.lagunas)
   const create = useLagunasStore((state) => state.createEmptyLaguna)
@@ -17,7 +29,7 @@ function App() {
     fetchLagunas()
   }, [])
 
-  console.log(lagunas)
+  //console.log(lagunas)
 
   const handleClick = () => {
     create()
@@ -28,16 +40,16 @@ function App() {
       <Navbar>
         <CrearButton onClick={handleClick}></CrearButton>
       </Navbar>
-        <Dialog></Dialog>
-        {lagunas.map((laguna) => (
-          <Laguna
-            id={laguna.id}
-            od={laguna.od}
-            orp={laguna.orp}
-            key={laguna.id}
-          >
-          </Laguna>
-        ))}
+      <Dialog onOpen={open} onClose={handleClose}></Dialog>
+      {lagunas.map((laguna) => (
+        <Laguna
+          id={laguna.id}
+          od={laguna.od}
+          orp={laguna.orp}
+          key={laguna.id}
+          onClick={handleOpen}
+        ></Laguna>
+      ))}
     </Container>
   )
 }

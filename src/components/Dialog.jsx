@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const dialog = {
   width: '100%',
   height: '100%',
@@ -16,12 +18,13 @@ const content = {
   overflowY: 'auto'
 };
 
-export const Dialog = ({children}) => {
+export const Dialog = ({children, onOpen, onClose}) => {
+
   return (
-    <dialog id="dialog" open={true} class="border-0" style={dialog}>
-      <button class="border-0 opacity-0" style={dialog} onClick={() => document.getElementById("dialog").open = false}>
+    <dialog id="dialog" open={onOpen} className="border-0" style={dialog}>
+      <button className="border-0 opacity-0" style={dialog} onClick={onClose}>
       </button>
-      <div class="bg-dark rounded-4" style={content}>
+      <div className="bg-dark rounded-4" style={content}>
         {children}
       </div>
     </dialog>

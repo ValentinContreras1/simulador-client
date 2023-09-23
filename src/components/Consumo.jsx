@@ -57,7 +57,7 @@ export const Consumo = () => {
 
   
     return (
-        <div class="progress col-9 m-2 float-end" role="progressbar" aria-label="Example with label" aria-valuenow={consumo} aria-valuemin="0" aria-valuemax="100">
+        <div className="progress col-9 m-2 float-end" role="progressbar" aria-label="Example with label" aria-valuenow={consumo} aria-valuemin="0" aria-valuemax="100">
             <div className={`progress-bar${claseExtra}`} style={{ width: `${consumo}%` }}>{consumo}%</div>
         </div>
     )
