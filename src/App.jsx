@@ -7,10 +7,14 @@ import { Dialog } from "./components/Dialog"
 import { Aireadores } from "./components/Aireadores"
 import { useLagunasStore } from "./store/lagunas"
 import { CrearButton } from "./components/CrearButton"
+import { useConsumoStore } from "./store/consumo"
 
 function App() {
   const [open, setOpen] = useState(false)
   const [actualId, setActualId] = useState("")
+
+  const consumo = useConsumoStore((state) => state.consumo)
+  const fetchConsumo = useConsumoStore((state) => state.fetchConsumo)
 
   const handleOpen = () => {
     setOpen(true)
@@ -24,10 +28,6 @@ function App() {
     setActualId(lagunaId)
   }
 
-  //console.log(open)
-
-  //console.log(actualId)
-
   const fetchLagunas = useLagunasStore((state) => state.fetchLagunas)
   const lagunas = useLagunasStore((state) => state.lagunas)
   const create = useLagunasStore((state) => state.createEmptyLaguna)
@@ -35,9 +35,10 @@ function App() {
 
   useEffect(() => {
     fetchLagunas()
+    fetchConsumo()
   }, [])
 
-  console.log(lagunas)
+  //console.log(lagunas)
 
   const handleClick = () => {
     create()
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <Container>
-      <Navbar>
+      <Navbar consumo={consumo}>
         <CrearButton onClick={handleClick}></CrearButton>
       </Navbar>
       <Dialog onOpen={open} onClose={handleClose}>

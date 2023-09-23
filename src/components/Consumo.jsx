@@ -1,58 +1,27 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import { useConsumoStore } from "../store/consumo" 
 
-export const Consumo = () => {
-  const [consumo, setConsumo] = useState(0)
+export const Consumo = ({ consumo }) => {
   const [claseExtra, setClaseExtra] = useState("")
 
-  // Función para generar un número aleatorio entre 0 y 100
-  const generarNumeroAleatorio = () => {
-    return Math.floor(Math.random() * 101)
-  }
-
-  // Función para sumar o restar un valor entre -5 y 5 cada segundo
-  const actualizarConsumo = () => {
-    setConsumo((prevConsumo) => {
-      const delta = Math.floor(Math.random() * 11) - 5 // Número entre -5 y 5
-      const nuevoConsumo = prevConsumo + delta
-      return Math.max(0, Math.min(100, nuevoConsumo)) // Limitar a un rango entre 0 y 100
-    })
-  }
-
-  // Generar un número aleatorio inicial al montar el componente
-  useEffect(() => {
-    const numeroInicial = generarNumeroAleatorio()
-    setConsumo(numeroInicial)
-  }, [])
-
-  // Actualizar el consumo y las clases según el valor de consumo
-  useEffect(() => {
-    actualizarConsumo()
-
-    // Determinar las clases adicionales
+  const determinarClasesExtra = (valorConsumo) => {
     let nuevasClases = ""
-    if (consumo < 30) {
+    if (valorConsumo < 30) {
       nuevasClases += " bg-success"
     }
-    if (consumo > 60) {
+    if (valorConsumo > 60) {
       nuevasClases += " bg-warning"
     }
-    if (consumo > 75) {
+    if (valorConsumo > 75) {
       nuevasClases += " bg-danger"
     }
+    return nuevasClases
+  }
+
+  useEffect(() => {
+    const nuevasClases = determinarClasesExtra(consumo)
     setClaseExtra(nuevasClases)
   }, [consumo])
-
-  // Generar un nuevo número aleatorio cada 5 segundos
-  useEffect(() => {
-    const intervaloAleatorio = setInterval(() => {
-      const nuevoNumeroAleatorio = generarNumeroAleatorio()
-      setConsumo(nuevoNumeroAleatorio)
-    }, 5000)
-
-    return () => {
-      clearInterval(intervaloAleatorio)
-    }
-  }, [])
 
   return (
     <div
