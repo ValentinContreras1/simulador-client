@@ -1,14 +1,23 @@
-const airStyle = {
-  height: '120px',
-  margin: 'auto',
-  marginTop: '30px',
-  overflowY: 'scroll',
-};
+import { AddAireador } from './AddAireador'
+import { Aireador } from './Aireador'
 
-export const Aireadores = ({children}) => {
+export const Aireadores = ({children, id=1, od=100, orp=50, cl="0%"}) => {
   return (
-    <ul className='fs-5 bg-secondary rounded-4 text-white' style={airStyle}>
-      {children}
-    </ul>
-  );
-};
+    <div className="p-5 row">
+        <div className='col-6'>
+            <h1 className="text-white mb-0 fs-2">Laguna {id}</h1>
+            <p className="text-secondary">Aireadores</p>
+        </div>
+        <div className='col-6 text-end text-white lightbtn'>
+        <p className="m-0">Consumo Laguna: {cl}</p>
+            <p className="m-0">OD: {od}</p>
+            <p className="m-0">ORP: {orp}</p>
+        </div>
+        <div className="row mx-auto">
+            <Aireador></Aireador>
+            <Aireador></Aireador>
+            <AddAireador></AddAireador>
+        </div>
+    </div>
+  )
+}
