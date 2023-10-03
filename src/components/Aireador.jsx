@@ -3,7 +3,10 @@ import { useState, useEffect } from "react"
 import { useLagunasStore } from "../store/lagunas"
 import { useConsumoStore } from "../store/consumo"
 
-export const Aireador = ({ freq, id, lagunaId }) => {
+// eslint-disable-next-line react/prop-types
+export const Aireador = ({ freq, id, lagunaId, encendido }) => {
+  const [frecuencia, setFrecuencia] = useState(freq)
+
   const updateFrecuencia = useLagunasStore(
     (state) => state.changeAireadorFrecuencia
   )
@@ -12,15 +15,31 @@ export const Aireador = ({ freq, id, lagunaId }) => {
   const fetch = useLagunasStore((state) => state.fetchLagunas)
   const remove = useLagunasStore((state) => state.deleteAireador)
 
+  const prender = useLagunasStore((state) => state.turnOnAireador)
+  const apagar = useLagunasStore((state) => state.turnOffAireador)
+
   const handleRemove = () => {
     remove(lagunaId, id)
+  }
+
+  const handleTurnOff = () => {
+    apagar(lagunaId, id)
+  }
+
+  const handleTurnOn = () => {
+    prender(lagunaId, id)
+  }
+
+  const handleUpdateFrecuencia = (e) => {
+    if (!encendido) {
+      return
+    }
+    updateFrecuencia(lagunaId, id, e.value)
   }
 
   useEffect(() => {
     fetch()
   }, [])
-
-  const [frecuencia, setFrecuencia] = useState(freq)
 
   return (
     <div className='col-2 ps-3 p-3 text-white text-center'>
@@ -29,6 +48,8 @@ export const Aireador = ({ freq, id, lagunaId }) => {
           <button className='border-0 bg-secondary' onClick={handleRemove}>
             <img src='https://img.icons8.com/?size=30&id=11997&format=png' />
           </button>
+          <button onClick={handleTurnOff}>Apagar</button>
+          <button onClick={handleTurnOn}>Encender</button>
         </div>
         <h1 className='fs-5'>Aireador</h1>
         <Knob
@@ -36,7 +57,7 @@ export const Aireador = ({ freq, id, lagunaId }) => {
           value={frecuencia}
           onChange={(e) => {
             setFrecuencia(e.value)
-            updateFrecuencia(lagunaId, id, e.value)
+            handleUpdateFrecuencia(e)
             updateConsumo()
           }}
           valueColor={"white"}
