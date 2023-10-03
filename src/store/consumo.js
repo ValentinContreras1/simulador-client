@@ -3,7 +3,7 @@ import { db } from "../firebase/config"
 import { ref, onValue, set } from "firebase/database"
 import { useLagunasStore } from "./lagunas"
 
-export const useConsumoStore = create((put, get) => {
+export const useConsumoStore = create((put) => {
   return {
     consumo: 0,
     actualizarConsumo: async () => {
