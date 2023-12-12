@@ -2,7 +2,7 @@ import "./main.css"
 
 export const CrearButton = ({ onClick }) => {
   const handleClick = () => {
-    onClick()
+    onClick() //ejemplo
   }
 
   return (
